@@ -1,0 +1,59 @@
+.form-container {
+  padding: 3rem;
+  background-color: #fff;
+  border-radius: 1vmin;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.form-container form {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+}
+
+.form-container form .form-input-control {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.form-container form .form-input-group span {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.form-container form .form-input-group input {
+  display: block;
+  outline: none;
+  border-radius: 0.5vmin;
+  border: 1px solid rgba(98, 71, 54, 0.7);
+  padding: 8px 15px;
+  font-size: 13px;
+}
+
+.disabled {
+  border: 1px solid rgba(98, 71, 54, 0.5) !important;
+  color: rgba(0, 0, 0, 0.5) !important;
+  background-color: transparent;
+}
+
+.form-container form .form-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.btn-submit {
+  padding: 0.5rem 2rem;
+  outline: none;
+  border: none;
+  background-color: rgba(98, 71, 54, 1);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 0.5vmin;
+  cursor: pointer;
+}
