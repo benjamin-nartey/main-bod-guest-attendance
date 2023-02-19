@@ -1,0 +1,35 @@
+.searchlist-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.searchlist-items {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0000, 0000, 0000, 0.5);
+  cursor: pointer;
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(98, 71, 54, 0.2);
+}
+
+.searchlist-items span {
+  display: inline-block;
+}
+
+.searchlist-items span:nth-child(2) {
+  font-weight: 700;
+  color: rgba(0000, 0000, 0000, 0.8);
+}
+
+.searchlist-items:hover {
+  background-color: rgba(98, 71, 54, 0.3);
+  /* color: white; */
+}

@@ -1,14 +1,16 @@
 import "./guest-form.styles.css";
 import { genderOptions } from "../../utils/gender-options.utils";
+import { reasonsOptions } from "../../utils/reasons-options.utils";
+import { relationshipOptions } from "../../utils/relationship-options.utils";
 import { useState } from "react";
 
 const defaultFormFields = {
-  staff_name: "",
-  department: "",
-  room_no: "",
-  personal_line: "",
-  direct_line: "",
-  extension: "",
+  // staff_name: "",
+  // department: "",
+  // room_no: "",
+  // personal_line: "",
+  // direct_line: "",
+  // extension: "",
   guest_name: "",
   gender: "",
   tag_no: "",
@@ -17,16 +19,16 @@ const defaultFormFields = {
   reason: "",
 };
 
-const GuestForm = () => {
+const GuestForm = ({ staffDetail }) => {
   const [formFields, setFormFields] = useState(defaultFormFields);
 
   const {
-    staff_name,
-    department,
-    room_no,
-    personal_line,
-    direct_line,
-    extension,
+    // staff_name,
+    // department,
+    // room_no,
+    // personal_line,
+    // direct_line,
+    // extension,
     guest_name,
     gender,
     tag_no,
@@ -35,13 +37,28 @@ const GuestForm = () => {
     reason,
   } = formFields;
 
+  const staff_name = `${staffDetail.employeefirstname} ${staffDetail.employeelastname}`;
+  const department = staffDetail.employeedepartment;
+  const room_no = null;
+  const personal_line = staffDetail.employeephone;
+  const direct_line = null;
+  const extension = null;
+
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormFields({ ...formFields, [name]: value });
+    setFormFields({
+      ...formFields,
+      [name]: value,
+      staff_name,
+      department,
+      room_no,
+      personal_line,
+      direct_line,
+      extension,
+    });
   };
 
   console.log(formFields);
-
   return (
     <div className="form-container">
       <form>
@@ -51,10 +68,11 @@ const GuestForm = () => {
             <input
               name="staff_name"
               value={staff_name}
-              disabled
-              className="disabled"
+              readOnly
+              className="readonly"
               type="text"
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-input-group">
@@ -63,9 +81,10 @@ const GuestForm = () => {
               name="department"
               type="text"
               value={department}
-              disabled
-              className="disabled"
+              readOnly
+              className="readonly"
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-input-group">
@@ -74,9 +93,10 @@ const GuestForm = () => {
               name="room_no"
               type="text"
               value={room_no}
-              disabled
-              className="disabled"
+              readOnly
+              className="readonly"
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-input-group">
@@ -85,9 +105,10 @@ const GuestForm = () => {
               name="personal_line"
               type="text"
               value={personal_line}
-              disabled
-              className="disabled"
+              readOnly
+              className="readonly"
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-input-group">
@@ -96,9 +117,10 @@ const GuestForm = () => {
               name="direct_name"
               type="text"
               value={direct_line}
-              disabled
-              className="disabled"
+              readOnly
+              className="readonly"
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-input-group">
@@ -107,9 +129,10 @@ const GuestForm = () => {
               name="extention"
               type="text"
               value={extension}
-              disabled
-              className="disabled"
+              readOnly
+              className="readonly"
               onChange={handleChange}
+              required
             />
           </div>
         </div>
@@ -148,6 +171,7 @@ const GuestForm = () => {
               type="text"
               value={tag_no}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-input-group">
@@ -157,6 +181,7 @@ const GuestForm = () => {
               type="text"
               value={guest_contact}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-input-group">
@@ -169,7 +194,7 @@ const GuestForm = () => {
               onChange={handleChange}
             >
               <option value="">Select Relationship</option>
-              {genderOptions.map((option) => (
+              {relationshipOptions.map((option) => (
                 <option key={option.id} value={option.value}>
                   {option.label}
                 </option>
@@ -186,7 +211,7 @@ const GuestForm = () => {
               onChange={handleChange}
             >
               <option value="">Select Reason</option>
-              {genderOptions.map((option) => (
+              {reasonsOptions.map((option) => (
                 <option key={option.id} value={option.value}>
                   {option.label}
                 </option>

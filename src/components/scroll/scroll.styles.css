@@ -1,0 +1,27 @@
+.scroll-div {
+  position: absolute;
+  left: 45%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  min-width: 20rem;
+  background-color: #fff;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  overflow-y: scroll;
+  height: 20rem;
+  min-height: 10rem;
+  max-height: 30rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scroll-div::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-div:focus {
+  outline: none;
+}

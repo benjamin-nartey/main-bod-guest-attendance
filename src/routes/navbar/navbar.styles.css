@@ -53,6 +53,7 @@
   /* background-color: #624736; */
   /* color: #fff; */
   cursor: pointer;
+  text-decoration: none;
 }
 
 .menu-icon-box span {
@@ -60,6 +61,10 @@
   transform: translateY(3rem);
   transition: all 0.25s ease;
   font-size: 11px;
+}
+
+.welcome-text {
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .search-container {
@@ -87,11 +92,6 @@
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
-
-.welcome-text {
-  color: rgba(0, 0, 0, 0.7);
-}
-
 .welcome-text .welcome-text-1 {
   font-size: 18px;
   font-weight: 500;

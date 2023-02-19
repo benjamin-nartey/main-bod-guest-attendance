@@ -1,11 +1,20 @@
 import "./navbar.styles.css";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { AiOutlineLogin } from "react-icons/ai";
-import { RiUserSearchLine } from "react-icons/ri";
+import { MdOutlineDashboardCustomize } from "react-icons/md";
+import { Link } from "react-router-dom";
 import { TbReport } from "react-icons/tb";
-import { BiSearch } from "react-icons/bi";
+import Search from "../../components/search/search.component";
+import Home from "../home/home.component";
+
 const Navbar = () => {
+  const [staffDetail, setStaffDetail] = useState([]);
+
+  const passDataToParent = (data) => {
+    setStaffDetail(data);
+  };
+
   return (
     <Fragment>
       <div className="navbar-container">
@@ -14,22 +23,15 @@ const Navbar = () => {
             <AiOutlineLogin className="icons" />
             <span>logout</span>
           </div>
-          <div className="menu-icon-box">
-            <RiUserSearchLine className="icons" />
-            <span>guest</span>
-          </div>
+          <Link to="/dashboard" className="menu-icon-box">
+            <MdOutlineDashboardCustomize className="icons" />
+            <span>dashboard</span>
+          </Link>
           <div className="menu-icon-box">
             <TbReport className="icons" />
             <span>records</span>
           </div>
-          <div className="search-container">
-            <input
-              className="search-bar"
-              type="text"
-              placeholder=" Search..."
-            />
-            <BiSearch className="search-icon" />
-          </div>
+          <Search passDataToParent={passDataToParent} />
         </div>
         <div className="welcome-box">
           <h4 className="welcome-text">
@@ -38,6 +40,7 @@ const Navbar = () => {
           </h4>
         </div>
       </div>
+      {staffDetail.length !== 0 ? <Home staffDetail={staffDetail} /> : null}
       <Outlet />
     </Fragment>
   );
