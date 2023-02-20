@@ -1,5 +1,5 @@
 .navbar-container {
-  background-color: #fff;
+  background-color: hsl(22, 78%, 92%);
   border-radius: 1vmin;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   display: flex;
@@ -20,7 +20,7 @@
 }
 
 .menu-icon-box:hover {
-  background-color: #624736;
+  background-color: hsl(22, 78%, 70%);
 }
 
 .menu-icon-box:hover .icons {
@@ -91,6 +91,7 @@
   border-radius: 1vmin;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  background-color: hsl(22, 78%, 95%);
 }
 .welcome-text .welcome-text-1 {
   font-size: 18px;

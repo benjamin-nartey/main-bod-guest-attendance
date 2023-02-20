@@ -39,10 +39,10 @@ const GuestForm = ({ staffDetail }) => {
 
   const staff_name = `${staffDetail.employeefirstname} ${staffDetail.employeelastname}`;
   const department = staffDetail.employeedepartment;
-  const room_no = null;
+  const room_no = "";
   const personal_line = staffDetail.employeephone;
-  const direct_line = null;
-  const extension = null;
+  const direct_line = "";
+  const extension = "";
 
   const handleChange = (event) => {
     const { name, value } = event.target;

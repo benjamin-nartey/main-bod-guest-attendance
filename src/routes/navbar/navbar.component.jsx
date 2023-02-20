@@ -1,37 +1,51 @@
 import "./navbar.styles.css";
 import { Fragment, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { AiOutlineLogin } from "react-icons/ai";
+import { AiOutlineHome } from "react-icons/ai";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { TbReport } from "react-icons/tb";
 import Search from "../../components/search/search.component";
-import Home from "../home/home.component";
 
-const Navbar = () => {
-  const [staffDetail, setStaffDetail] = useState([]);
+const Navbar = ({
+  handleChange,
+  filteredStaffs,
+  showSearch,
+  passDataToApp,
+}) => {
+  const [childElement, setChildElement] = useState([]);
 
   const passDataToParent = (data) => {
-    setStaffDetail(data);
+    setChildElement(data);
   };
 
+  const dataPassFunction = () => {
+    passDataToApp(childElement);
+  };
+
+  dataPassFunction();
   return (
     <Fragment>
       <div className="navbar-container">
         <div className="menu-container">
-          <div className="menu-icon-box">
-            <AiOutlineLogin className="icons" />
-            <span>logout</span>
-          </div>
           <Link to="/dashboard" className="menu-icon-box">
             <MdOutlineDashboardCustomize className="icons" />
             <span>dashboard</span>
+          </Link>
+          <Link to="/" className="menu-icon-box">
+            <AiOutlineHome className="icons" />
+            <span>Home</span>
           </Link>
           <div className="menu-icon-box">
             <TbReport className="icons" />
             <span>records</span>
           </div>
-          <Search passDataToParent={passDataToParent} />
+          <Search
+            handleChange={handleChange}
+            filteredStaffs={filteredStaffs}
+            showSearch={showSearch}
+            passDataToParent={passDataToParent}
+          />
         </div>
         <div className="welcome-box">
           <h4 className="welcome-text">
@@ -40,7 +54,6 @@ const Navbar = () => {
           </h4>
         </div>
       </div>
-      {staffDetail.length !== 0 ? <Home staffDetail={staffDetail} /> : null}
       <Outlet />
     </Fragment>
   );

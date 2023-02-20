@@ -1,7 +1,7 @@
 import "./scroll.styles.css";
 import { useEffect, useRef, useState } from "react";
 
-const Scroll = ({ children, childSecond }) => {
+const Scroll = ({ children }) => {
   const inputDiv = useRef();
   const [show, setShow] = useState(true);
   const [key, setKey] = useState();

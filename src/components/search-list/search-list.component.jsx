@@ -14,9 +14,8 @@ const SearchList = ({ filteredStaffs, passDataLevel2 }) => {
   };
 
   passOnDataToSearchComponent();
-
-  const filtered = filteredStaffs.map((staff) => (
-    <SearchlistItem key={staff.id} staff={staff} passData={passData} />
+  const filtered = filteredStaffs.map((staff, index) => (
+    <SearchlistItem key={index} staff={staff} passData={passData} />
   ));
 
   return <div className="searchlist-container">{filtered}</div>;
