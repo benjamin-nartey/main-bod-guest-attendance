@@ -3,6 +3,11 @@ import { genderOptions } from "../../utils/gender-options.utils";
 import { reasonsOptions } from "../../utils/reasons-options.utils";
 import { relationshipOptions } from "../../utils/relationship-options.utils";
 import { useState } from "react";
+import db from "../../utils/firebase.utils";
+import { collection, addDoc, doc } from "firebase/firestore";
+
+const current = new Date();
+const time_in = current.toLocaleString();
 
 const defaultFormFields = {
   // staff_name: "",
@@ -17,6 +22,7 @@ const defaultFormFields = {
   guest_contact: "",
   relationship: "",
   reason: "",
+  time_in: `"${time_in}"`,
 };
 
 const GuestForm = ({ staffDetail }) => {
@@ -44,6 +50,24 @@ const GuestForm = ({ staffDetail }) => {
   const direct_line = "";
   const extension = "";
 
+  const clearFormFields = () => {
+    setFormFields({
+      guest_name: "",
+      gender: "",
+      tag_no: "",
+      guest_contact: "",
+      relationship: "",
+      reason: "",
+      time_in: "",
+      staff_name: "",
+      department: "",
+      room_no: "",
+      personal_line: "",
+      direct_line: "",
+      extension: "",
+    });
+  };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormFields({
@@ -58,10 +82,18 @@ const GuestForm = ({ staffDetail }) => {
     });
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const collectionRef = collection(db, "visitors");
+    const payload = formFields;
+    await addDoc(collectionRef, payload);
+    clearFormFields();
+  };
+
   console.log(formFields);
   return (
     <div className="form-container">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-input-control">
           <div className="form-input-group">
             <span>Name</span>

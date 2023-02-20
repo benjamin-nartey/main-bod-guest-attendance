@@ -1,7 +1,25 @@
 .dashboard-metric-container {
   width: 100%;
   height: 100%;
-  background-color: rgb(24, 22, 22);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-rows: repeat(2, 1fr); */
+  gap: 1rem;
+  align-items: center;
+  justify-items: center;
+  padding: 2rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.dashboard-metric-container::-webkit-scrollbar {
+  display: none;
+}
+
+.link-class {
+  width: 100%;
+  height: 12rem;
+  text-decoration: none;
 }
