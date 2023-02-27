@@ -4,6 +4,7 @@ import Navbar from "./routes/navbar/navbar.component";
 import Dashboard from "./routes/dashboard/dashboard.component";
 import { StaffsDataContext } from "./context/staffs-data.context";
 import DashboardMetric from "./components/dashboard-metric/dashboard-metric.component";
+import AllGuestData from "./routes/allguest-data/allguest-data.component";
 
 import { useContext, useState } from "react";
 
@@ -52,8 +53,9 @@ const App = () => {
       >
         <Route index element={<Home staffDetail={staffDetail} />} />
         <Route path="dashboard" element={<Dashboard />}>
+        <Route index element={<DashboardMetric />} />
           <Route path="metric" element={<DashboardMetric />} />
-          <Route index element={<DashboardMetric />} />
+          <Route path="allguest-data" element={<AllGuestData />} />
         </Route>
       </Route>
     </Routes>

@@ -1,6 +1,6 @@
 .form-container {
   padding: 3rem;
-  background-color: #fff;
+  background-color: hsl(22, 78%, 95%);
   border-radius: 1vmin;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
@@ -31,6 +31,7 @@
   border: 1px solid rgba(98, 71, 54, 0.5);
   padding: 8px 15px;
   font-size: 13px;
+  background-color: hsl(22, 78%, 97%);
 }
 
 .form-container form .form-input-group select {
@@ -41,6 +42,7 @@
   padding: 8px 15px;
   font-size: 13px;
   color: rgba(0, 0, 0, 0.6);
+  background-color: hsl(22, 78%, 97%);
 }
 
 .form-container form .form-input-group input:focus {
@@ -49,7 +51,7 @@
 
 .readonly {
   color: rgba(0, 0, 0, 0.5) !important;
-  background-color: transparent;
+  background-color: transparent !important;
   cursor: not-allowed;
 }
 .readonly:focus {

@@ -4,7 +4,8 @@ import { reasonsOptions } from "../../utils/reasons-options.utils";
 import { relationshipOptions } from "../../utils/relationship-options.utils";
 import { useState } from "react";
 import db from "../../utils/firebase.utils";
-import { collection, addDoc, doc } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
+import swal from "sweetalert";
 
 const current = new Date();
 const time_in = current.toLocaleString();
@@ -87,6 +88,11 @@ const GuestForm = ({ staffDetail }) => {
     const collectionRef = collection(db, "visitors");
     const payload = formFields;
     await addDoc(collectionRef, payload);
+    swal(
+      "Form Submitted!",
+      "Guest data has been added to database!",
+      "success"
+    );
     clearFormFields();
   };
 

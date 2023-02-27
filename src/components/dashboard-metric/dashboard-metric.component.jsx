@@ -2,16 +2,19 @@ import "./dashboard-metric.styles.css";
 import MetricCard from "../metric-card/metric-card.component";
 import { BsPeople } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { GuestContext } from "../../context/guest.context";
 
 const DashboardMetric = () => {
+  const { allGuest } = useContext(GuestContext);
   return (
     <div className="dashboard-metric-container">
-      <Link className="link-class link-1" to="">
+      <Link className="link-class link-1" to="/dashboard/allguest-data">
         <MetricCard cardType="all_visitors">
           <div className="metric-label-container">
             <h4 className="metric-name">All Visitors</h4>
             <span className="metirc-description">total number of visitors</span>
-            <h2 className="metric-figures">1500</h2>
+            <h2 className="metric-figures">{allGuest.length}</h2>
           </div>
           <div className="metric-icon-div">
             <BsPeople className="metric-icon" />
