@@ -1,14 +1,21 @@
 .form-container {
-  padding: 3rem;
-  background-color: hsl(22, 78%, 95%);
-  border-radius: 1vmin;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  width: 100%;
+  /* background-color: red; */
+  height: 100%;
+  display: grid;
+  place-items: center;
+  position: relative;
 }
 
 .form-container form {
   display: grid;
   place-items: center;
   gap: 1rem;
+  padding: 3rem;
+  background-color: hsl(22, 78%, 95%);
+  border-radius: 1vmin;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  margin-top: 4rem;
 }
 
 .form-container form .form-input-control {
@@ -22,6 +29,10 @@
   font-size: 14px;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.7);
+}
+
+.form-container form .form-input-group {
+  position: relative;
 }
 
 .form-container form .form-input-group input {
@@ -84,4 +95,36 @@
 
 .btn-submit:active {
   background-color: rgba(98, 71, 54, 0.9);
+}
+
+.searchbar-wrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 16rem;
+  background-color: white;
+  border-radius: 1vmin;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.tagSearchInput {
+  position: absolute;
+  display: block;
+  outline: none;
+  border-radius: 0.5vmin;
+  border: 1px solid rgba(98, 71, 54, 0.5);
+  /* padding: 8px 15px; */
+  font-size: 13px;
+  background-color: hsl(22, 78%, 97%);
+  bottom: 0;
+  left: 0;
+}
+
+.tagSearchInput .search .searchInputs input {
+  border: 0;
+}
+
+.tagSearchInput .search .searchInputs input:focus {
+  outline: none;
+  border: 0;
 }

@@ -11,7 +11,10 @@ export const GuestProvider = ({ children }) => {
   const [allGuest, setAllGuest] = useState([]);
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, "visitors"), (snapshot) => {
-      const allVisitorsData = snapshot.docs.map((doc) => doc.data());
+      const allVisitorsData = snapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
       setAllGuest(allVisitorsData);
     });
     return unsubscribe;

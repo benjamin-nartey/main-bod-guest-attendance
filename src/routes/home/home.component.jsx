@@ -1,12 +1,10 @@
 import GuestForm from "../../components/guest-form/guest-form.component";
 import "./home.styles.css";
 
-const Home = ({ staffDetail }) => {
+const Home = () => {
   return (
     <div className="home-container">
-      {staffDetail.length !== 0 ? (
-        <GuestForm staffDetail={staffDetail} />
-      ) : null}
+        <GuestForm />
     </div>
   );
 };

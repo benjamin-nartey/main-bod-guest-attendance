@@ -32,8 +32,8 @@ const DataTableAllGuest = () => {
         accessor: "staff_name",
       },
       {
-        Header: "STAFF_CONTACT",
-        accessor: "personal_line",
+        Header: "DIVISION",
+        accessor: "division",
       },
       {
         Header: "DEPARTMENT",
@@ -62,6 +62,10 @@ const DataTableAllGuest = () => {
       {
         Header: "TIME_IN",
         accessor: "time_in",
+      },
+      {
+        Header: "TIME_OUT",
+        accessor: "time_out",
       },
     ],
     []

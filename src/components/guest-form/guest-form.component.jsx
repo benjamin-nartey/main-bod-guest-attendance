@@ -2,11 +2,16 @@ import "./guest-form.styles.css";
 import { genderOptions } from "../../utils/gender-options.utils";
 import { reasonsOptions } from "../../utils/reasons-options.utils";
 import { relationshipOptions } from "../../utils/relationship-options.utils";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import db from "../../utils/firebase.utils";
 import { collection, addDoc } from "firebase/firestore";
 import swal from "sweetalert";
+import SearchBar from "../searchbar/SearchBar";
+import { tagNo } from "../../utils/tag-no.utils";
+import { StaffsDataContext } from "../../context/staffs-data.context";
+import TagsSearchBar from "../searchbar/tagsSearchBar";
 
+let time_out = "";
 const current = new Date();
 const time_in = current.toLocaleString();
 
@@ -19,15 +24,18 @@ const defaultFormFields = {
   // extension: "",
   guest_name: "",
   gender: "",
-  tag_no: "",
   guest_contact: "",
   relationship: "",
   reason: "",
   time_in: `"${time_in}"`,
+  time_out: "",
 };
 
-const GuestForm = ({ staffDetail }) => {
+const GuestForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
+  const { staffsData } = useContext(StaffsDataContext);
+  const [staffDetail, setStaffDetail] = useState([]);
+  const [tagDetail, setTagDetail] = useState([]);
 
   const {
     // staff_name,
@@ -38,18 +46,18 @@ const GuestForm = ({ staffDetail }) => {
     // extension,
     guest_name,
     gender,
-    tag_no,
     guest_contact,
     relationship,
     reason,
   } = formFields;
 
-  const staff_name = `${staffDetail.employeefirstname} ${staffDetail.employeelastname}`;
-  const department = staffDetail.employeedepartment;
-  const room_no = "";
-  const personal_line = staffDetail.employeephone;
-  const direct_line = "";
-  const extension = "";
+  const staff_name = staffDetail?.employee;
+  const department = staffDetail?.Department?.departmentname;
+  const division = staffDetail?.DDivisions?.divisionname;
+  const room_no = staffDetail?.roomno;
+  const direct_line = staffDetail.directno;
+  const extension = staffDetail.extensionno;
+  const tag_no = tagDetail.tagValue;
 
   const clearFormFields = () => {
     setFormFields({
@@ -60,12 +68,14 @@ const GuestForm = ({ staffDetail }) => {
       relationship: "",
       reason: "",
       time_in: "",
+      time_out: "",
       staff_name: "",
       department: "",
+      division: "",
       room_no: "",
-      personal_line: "",
       direct_line: "",
       extension: "",
+      tag_no: "",
     });
   };
 
@@ -76,10 +86,11 @@ const GuestForm = ({ staffDetail }) => {
       [name]: value,
       staff_name,
       department,
+      division,
       room_no,
-      personal_line,
       direct_line,
       extension,
+      tag_no,
     });
   };
 
@@ -88,17 +99,38 @@ const GuestForm = ({ staffDetail }) => {
     const collectionRef = collection(db, "visitors");
     const payload = formFields;
     await addDoc(collectionRef, payload);
+
     swal(
       "Form Submitted!",
       "Guest data has been added to database!",
       "success"
     );
+
     clearFormFields();
   };
 
+  const retrievePropFromChild = (data) => {
+    setStaffDetail(data);
+  };
+
+  const retrieveTagDetail = (data) => {
+    setTagDetail(data);
+  };
+
   console.log(formFields);
+  console.log("staffDetaill", staffDetail);
+  console.log("tagDetail", tagDetail);
+  console.log("taggNoo", tag_no);
   return (
     <div className="form-container">
+      <div className="searchbar-wrapper">
+        <SearchBar
+          placeholder="Search....."
+          data={staffsData}
+          retrievePropFromChild={retrievePropFromChild}
+        />
+      </div>
+
       <form onSubmit={handleSubmit}>
         <div className="form-input-control">
           <div className="form-input-group">
@@ -126,6 +158,18 @@ const GuestForm = ({ staffDetail }) => {
             />
           </div>
           <div className="form-input-group">
+            <span>Division</span>
+            <input
+              name="division"
+              type="text"
+              value={division}
+              readOnly
+              className="readonly"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-input-group">
             <span>Room No</span>
             <input
               name="room_no"
@@ -137,18 +181,7 @@ const GuestForm = ({ staffDetail }) => {
               required
             />
           </div>
-          <div className="form-input-group">
-            <span>Personal Line</span>
-            <input
-              name="personal_line"
-              type="text"
-              value={personal_line}
-              readOnly
-              className="readonly"
-              onChange={handleChange}
-              required
-            />
-          </div>
+
           <div className="form-input-group">
             <span>Direct Line</span>
             <input
@@ -204,13 +237,14 @@ const GuestForm = ({ staffDetail }) => {
           </div>
           <div className="form-input-group">
             <span>Tag No</span>
-            <input
-              name="tag_no"
-              type="text"
-              value={tag_no}
-              onChange={handleChange}
-              required
-            />
+            <div className="tagSearchInput">
+              <TagsSearchBar
+                placeholder="search tags..."
+                data={tagNo}
+                retrieveTagDetail={retrieveTagDetail}
+                value={tag_no}
+              />
+            </div>
           </div>
           <div className="form-input-group">
             <span>Contact</span>

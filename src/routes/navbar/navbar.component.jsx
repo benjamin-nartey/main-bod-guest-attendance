@@ -5,25 +5,27 @@ import { AiOutlineHome } from "react-icons/ai";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { TbReport } from "react-icons/tb";
-import Search from "../../components/search/search.component";
+// import Search from "../../components/search/search.component";
 
-const Navbar = ({
-  handleChange,
-  filteredStaffs,
-  showSearch,
-  passDataToApp,
-}) => {
-  const [childElement, setChildElement] = useState([]);
+const Navbar = (
+  {
+    // handleChange,
+    // filteredStaffs,
+    // showSearch,
+    // passDataToApp,
+  }
+) => {
+  // const [childElement, setChildElement] = useState([]);
 
-  const passDataToParent = (data) => {
-    setChildElement(data);
-  };
+  // const passDataToParent = (data) => {
+  //   setChildElement(data);
+  // };
 
-  const dataPassFunction = () => {
-    passDataToApp(childElement);
-  };
+  // const dataPassFunction = () => {
+  //   passDataToApp(childElement);
+  // };
 
-  dataPassFunction();
+  // dataPassFunction();
   return (
     <Fragment>
       <div className="navbar-container">
@@ -36,16 +38,16 @@ const Navbar = ({
             <AiOutlineHome className="icons" />
             <span>Home</span>
           </Link>
-          <div className="menu-icon-box">
+          <Link to="/guest-out" className="menu-icon-box">
             <TbReport className="icons" />
-            <span>records</span>
-          </div>
-          <Search
+            <span>Out</span>
+          </Link>
+          {/* <Search
             handleChange={handleChange}
             filteredStaffs={filteredStaffs}
             showSearch={showSearch}
             passDataToParent={passDataToParent}
-          />
+          /> */}
         </div>
         <div className="welcome-box">
           <h4 className="welcome-text">

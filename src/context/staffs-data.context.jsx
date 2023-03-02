@@ -8,22 +8,35 @@ export const StaffsDataContext = createContext({
 
 export const StaffsDataProvider = ({ children }) => {
   const [staffsData, setStaffsData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
 
-  // const fetchStaffsData = async () => {
-  //   const response = await api.get("/employeesMysql");
-  //   const data = response.data;
-  //   setStaffsData(data);
-  //   console.log(data, "showwww");
-  // };
+  const fetchStaffsData = async () => {
+    setLoading(true);
+    try {
+      const response = await api.get("/directory");
+      const data = response.data;
+      setStaffsData(data);
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false);
+  };
 
   useEffect(() => {
-    api
-      .get("/employeesMysql")
-      .then((response) => setStaffsData(response.data))
-      .catch((error) => console.log(error));
-  }, []);
+    const handleStatusChange = () => {
+      setIsOnline(navigator.onLine);
+    };
+    fetchStaffsData();
+    window.addEventListener("online", handleStatusChange);
+    window.addEventListener("offline", handleStatusChange);
+    // return () => {
+    //   window.removeEventListener("online", handleStatusChange);
+    //   window.removeEventListener("offline", handleStatusChange);
+    // };
+  }, [isOnline]);
 
-  const value = { staffsData };
+  const value = { staffsData, loading };
 
   console.log(staffsData, "fffffff");
 
