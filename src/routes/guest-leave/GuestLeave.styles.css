@@ -36,13 +36,15 @@
 .form-box span:nth-child(1) {
   font-weight: 700;
   font-size: 15px;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .form-box span:nth-child(2) {
   font-weight: 400;
-  font-size: 15px;
+  font-size: 14px;
   text-transform: capitalize;
+  color: rgb(31, 30, 30);
 }
 
 .sign-out-form-container {

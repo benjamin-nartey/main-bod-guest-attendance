@@ -34,7 +34,7 @@ const Navbar = () => {
         <div className="welcome-box">
           <h4 className="welcome-text">
             <span className="welcome-text-1">Welcome</span>
-            <span className="welcome-text-2">Benjamin</span>
+            <span className="welcome-text-2">To Frontdesk</span>
           </h4>
         </div>
       </div>

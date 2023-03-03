@@ -1,12 +1,12 @@
 export const reasonsOptions = [
   {
-    label: "Meeting",
-    value: "meeting",
+    label: "Bod Meeting",
+    value: "bod_meeting",
     id: 1,
   },
   {
-    label: "Personal consult",
-    value: "personal_consult",
+    label: "Official",
+    value: "official",
     id: 2,
   },
 ];
