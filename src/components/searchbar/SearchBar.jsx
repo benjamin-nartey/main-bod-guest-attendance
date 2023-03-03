@@ -55,19 +55,17 @@ function SearchBar({ placeholder, data, retrievePropFromChild }) {
         <div className="dataResult">
           {filteredData.map((value, index) => {
             const { employee, DDivisions, Department } = value;
-            if (employee || DDivisions || Department) {
-              return (
-                <h4
-                  key={index}
-                  className="dataItem"
-                  onClick={() => retrievePropFromChild(value)}
-                >
-                  <p className="employee-name">{`${employee} `}</p>
-                  <p className="designation"> {`${DDivisions.divisionname}`}</p>
-                  <p className="designation">{`${Department.departmentname} `}</p>
-                </h4>
-              );
-            }
+            return (
+              <h4
+                key={index}
+                className="dataItem"
+                onClick={() => retrievePropFromChild(value)}
+              >
+                <p className="employee-name">{`${employee} `}</p>
+                <p className="designation"> {`${DDivisions.divisionname}`}</p>
+                <p className="designation">{`${Department.departmentname} `}</p>
+              </h4>
+            );
           })}
         </div>
       )}

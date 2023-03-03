@@ -13,9 +13,10 @@ function SearchGuest({ placeholder, data, retrievePropFromChild }) {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
     const newFilter = data.filter((value) => {
-        if(value.time_out === ""){
-            return value.tag_no.toLowerCase().includes(searchWord.toLowerCase());
-        }
+      return (
+        value.tag_no.toLowerCase().includes(searchWord.toLowerCase()) &&
+        value.time_out === ""
+      );
     });
     if (searchWord === "") {
       setFilteredData([]);
@@ -66,22 +67,21 @@ function SearchGuest({ placeholder, data, retrievePropFromChild }) {
               divsion,
               department,
             } = value;
-            if (tag_no || guest_name) {
-              return (
-                <h4
-                  key={value.id}
-                  className="guest-dataItem"
-                  onClick={() => retrievePropFromChild(value)}
-                >
-                  <span className="item-row">
-                    <p>{`${guest_name} `}</p> <p>{`${guest_contact} `}</p>
-                    <p>{`${tag_no} `}</p> <p>{`${staff_name} `}</p>
-                    <p>{`${room_no} `}</p> <p>{`${divsion} `}</p>
-                    <p>{`${department} `}</p>
-                  </span>
-                </h4>
-              );
-            }
+
+            return (
+              <h4
+                key={value.id}
+                className="guest-dataItem"
+                onClick={() => retrievePropFromChild(value)}
+              >
+                <span className="item-row">
+                  <p>{`${guest_name} `}</p> <p>{`${guest_contact} `}</p>
+                  <p>{`${tag_no} `}</p> <p>{`${staff_name} `}</p>
+                  <p>{`${room_no} `}</p> <p>{`${divsion} `}</p>
+                  <p>{`${department} `}</p>
+                </span>
+              </h4>
+            );
           })}
         </div>
       )}

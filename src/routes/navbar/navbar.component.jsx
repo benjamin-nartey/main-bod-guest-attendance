@@ -1,5 +1,5 @@
 import "./navbar.styles.css";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
@@ -7,25 +7,7 @@ import { Link } from "react-router-dom";
 import { TbReport } from "react-icons/tb";
 // import Search from "../../components/search/search.component";
 
-const Navbar = (
-  {
-    // handleChange,
-    // filteredStaffs,
-    // showSearch,
-    // passDataToApp,
-  }
-) => {
-  // const [childElement, setChildElement] = useState([]);
-
-  // const passDataToParent = (data) => {
-  //   setChildElement(data);
-  // };
-
-  // const dataPassFunction = () => {
-  //   passDataToApp(childElement);
-  // };
-
-  // dataPassFunction();
+const Navbar = () => {
   return (
     <Fragment>
       <div className="navbar-container">

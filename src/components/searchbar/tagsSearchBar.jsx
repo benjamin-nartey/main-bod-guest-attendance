@@ -1,6 +1,6 @@
 import "./SearchBar.css";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { BiSearch } from "react-icons/bi";
 import { MdClose } from "react-icons/md";
 
@@ -35,7 +35,9 @@ function TagsSearchBar({ placeholder, data, retrieveTagDetail, value }) {
     setFilteredData([]);
     setWordEntered(value);
   };
-  window.addEventListener("click", clearInput);
+  useEffect(() => {
+    window.addEventListener("click", clearInput);
+  }, [value]);
   return (
     <div className="search">
       <div className="searchInputs">
@@ -60,18 +62,16 @@ function TagsSearchBar({ placeholder, data, retrieveTagDetail, value }) {
       {filteredData.length !== 0 && (
         <div className="dataResult">
           {filteredData.map((value, index) => {
-            const { tagValue, label } = value;
-            if (tagValue || label) {
-              return (
-                <h4
-                  key={index}
-                  className="dataItem"
-                  onClick={() => retrieveTagDetail(value)}
-                >
-                  <p>{`${tagValue} `}</p>
-                </h4>
-              );
-            }
+            const { tagValue } = value;
+            return (
+              <h4
+                key={index}
+                className="dataItem"
+                onClick={() => retrieveTagDetail(value)}
+              >
+                <p>{`${tagValue} `}</p>
+              </h4>
+            );
           })}
         </div>
       )}

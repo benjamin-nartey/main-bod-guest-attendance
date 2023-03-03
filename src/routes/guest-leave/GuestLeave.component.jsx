@@ -1,12 +1,11 @@
 import "./GuestLeave.styles.css";
-import SwitchComponent from "../../components/switch/switch.component";
 import { GuestContext } from "../../context/guest.context";
 import { useContext } from "react";
 import SearchGuest from "../../components/searchbar/searchguest";
 import { useState } from "react";
-import { collection, setDoc, doc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import db from "../../utils/firebase.utils";
-import { async } from "@firebase/util";
+
 import swal from "sweetalert";
 
 const GuestLeave = () => {
