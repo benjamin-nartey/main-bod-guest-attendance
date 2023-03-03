@@ -46,31 +46,31 @@ const GuestLeave = () => {
           <form onSubmit={handleSubmit}>
             <div className="form-control">
               <div className="form-box">
-                <span>GUEST_NAME</span>
+                <span>Visitor's Name</span>
                 <span>{guestDetail?.guest_name}</span>
               </div>
               <div className="form-box">
-                <span>GUEST_CONTACT</span>
+                <span>Visitor's Contact</span>
                 <span>{guestDetail?.guest_contact}</span>
               </div>
               <div className="form-box">
-                <span>TAG_NO</span>
+                <span>Tag Number</span>
                 <span>{guestDetail?.tag_no}</span>
               </div>
               <div className="form-box">
-                <span>STAFF_NAME</span>
+                <span>Staff Name</span>
                 <span>{guestDetail?.staff_name}</span>
               </div>
               <div className="form-box">
-                <span>DEPARTMENT</span>
+                <span>Department</span>
                 <span>{guestDetail?.department}</span>
               </div>
               <div className="form-box">
-                <span>ROOM_NO</span>
+                <span>Room Number</span>
                 <span>{guestDetail?.room_no}</span>
               </div>
               <div className="form-box">
-                <span>TIME_IN</span>
+                <span>Time In</span>
                 <span>{guestDetail?.time_in}</span>
               </div>
             </div>

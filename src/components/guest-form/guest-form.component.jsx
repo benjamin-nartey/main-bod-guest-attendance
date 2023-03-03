@@ -142,7 +142,7 @@ const GuestForm = () => {
           <form onSubmit={handleSubmit}>
             <div className="form-input-control">
               <div className="form-input-group">
-                <span>Name</span>
+                <span>Staff Name</span>
                 <input
                   name="staff_name"
                   value={staff_name}
@@ -178,7 +178,7 @@ const GuestForm = () => {
                 />
               </div>
               <div className="form-input-group">
-                <span>Room No</span>
+                <span>Room No.</span>
                 <input
                   name="room_no"
                   type="text"
@@ -217,7 +217,7 @@ const GuestForm = () => {
             </div>
             <div className="form-input-control">
               <div className="form-input-group">
-                <span>Guest Name</span>
+                <span>Visitor's Name</span>
                 <input
                   name="guest_name"
                   type="text"
@@ -244,7 +244,7 @@ const GuestForm = () => {
                 </select>
               </div>
               <div className="form-input-group">
-                <span>Tag No</span>
+                <span>Tag No.</span>
                 <div className="tagSearchInput">
                   <TagsSearchBar
                     placeholder="search tags..."
@@ -255,7 +255,7 @@ const GuestForm = () => {
                 </div>
               </div>
               <div className="form-input-group">
-                <span>Contact</span>
+                <span>Visitor's Contact</span>
                 <input
                   name="guest_contact"
                   type="text"
@@ -265,7 +265,7 @@ const GuestForm = () => {
                 />
               </div>
               <div className="form-input-group">
-                <span>Relationship with staff</span>
+                <span>Relationship With Staff</span>
                 <select
                   required
                   value={relationship}
@@ -282,7 +282,7 @@ const GuestForm = () => {
                 </select>
               </div>
               <div className="form-input-group">
-                <span>Reasons for visit</span>
+                <span>Reasons For Visit</span>
                 <select
                   required
                   value={reason}

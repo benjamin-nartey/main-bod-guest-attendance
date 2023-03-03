@@ -28,7 +28,7 @@ const DashboardMetric = () => {
             <span className="metirc-description">
               total number of contract visitors
             </span>
-            <h2 className="metric-figures">1500</h2>
+            <h2 className="metric-figures">loading...</h2>
           </div>
           <div className="metric-icon-div">
             <BsPeople className="metric-icon" />
@@ -43,7 +43,7 @@ const DashboardMetric = () => {
           <div className="metric-label-container-2">
             <h4 className="metric-name">Meeting</h4>
             <span className="metirc-description">total number of visitors</span>
-            <h2 className="metric-figures">1500</h2>
+            <h2 className="metric-figures">loading...</h2>
           </div>
         </MetricCard>
       </Link>
@@ -54,7 +54,7 @@ const DashboardMetric = () => {
             <span className="metirc-description">
               total number of official visitors
             </span>
-            <h2 className="metric-figures">1500</h2>
+            <h2 className="metric-figures">loading...</h2>
           </div>
           <div className="metric-icon-div">
             <BsPeople className="metric-icon" />
@@ -71,7 +71,7 @@ const DashboardMetric = () => {
             <span className="metirc-description">
               total number of emergency visitors
             </span>
-            <h2 className="metric-figures">1500</h2>
+            <h2 className="metric-figures">loading...</h2>
           </div>
         </MetricCard>
       </Link>

@@ -11,11 +11,11 @@ const DataTableAllGuest = () => {
   const columns = useMemo(
     () => [
       {
-        Header: "GUEST_NAME",
+        Header: "VISITOR'S NAME",
         accessor: "guest_name",
       },
       {
-        Header: "GUEST_CONTACT",
+        Header: "VISITOR'S CONTACT",
         accessor: "guest_contact",
       },
 
@@ -24,11 +24,11 @@ const DataTableAllGuest = () => {
         accessor: "gender",
       },
       {
-        Header: "TAG_NO.",
+        Header: "TAG NUMBER.",
         accessor: "tag_no",
       },
       {
-        Header: "STAFF_NAME",
+        Header: "STAFF NAME",
         accessor: "staff_name",
       },
       {
@@ -40,7 +40,7 @@ const DataTableAllGuest = () => {
         accessor: "department",
       },
       {
-        Header: "DIRECT_LINE",
+        Header: "DIRECT LINE",
         accessor: "direct_line",
       },
       {
@@ -48,7 +48,7 @@ const DataTableAllGuest = () => {
         accessor: "extension",
       },
       {
-        Header: "ROOM_NO.",
+        Header: "ROOM NUMBER",
         accessor: "room_no",
       },
       {
@@ -60,11 +60,11 @@ const DataTableAllGuest = () => {
         accessor: "relationship",
       },
       {
-        Header: "TIME_IN",
+        Header: "TIME IN",
         accessor: "time_in",
       },
       {
-        Header: "TIME_OUT",
+        Header: "TIME OUT",
         accessor: "time_out",
       },
     ],
