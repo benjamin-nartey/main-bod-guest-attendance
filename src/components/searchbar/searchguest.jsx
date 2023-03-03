@@ -7,6 +7,7 @@ import { MdClose } from "react-icons/md";
 function SearchGuest({ placeholder, data, retrievePropFromChild }) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
+
   // const [childData, setChildData] = useState([]);
 
   const handleFilter = (event) => {

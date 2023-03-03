@@ -100,16 +100,16 @@ const GuestForm = () => {
     try {
       const collectionRef = collection(db, "visitors");
       const payload = formFields;
-      await addDoc(collectionRef, payload);
-
-      setLoading(false);
-      clearFormFields();
-
-      swal(
-        "Form Submitted!",
-        "Guest data has been added to database!",
-        "success"
-      );
+      await addDoc(collectionRef, payload)
+        .then(setLoading(false))
+        .then(clearFormFields())
+        .then(
+          swal(
+            "Form Submitted!",
+            "Guest data has been added to database!",
+            "success"
+          )
+        );
     } catch (error) {
       console.log(error);
     }

@@ -18,14 +18,18 @@ const GuestLeave = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
   };
+  const clearGuestDetail = () => {
+    setGuestDetail([]);
+  };
   const current = new Date();
   const time_out = current.toLocaleString();
 
   const handleSignOut = async (id) => {
     const docRef = doc(db, "visitors", id);
     const payload = { ...guestDetail, time_out: time_out };
-    setDoc(docRef, payload);
-    swal("Guest SignedOut!", "Guest has exit the premises!", "success");
+    setDoc(docRef, payload)
+      .then(swal("Guest SignedOut!", "Guest has exit the premises!", "success"))
+      .then(clearGuestDetail());
   };
 
   return (
@@ -37,47 +41,49 @@ const GuestLeave = () => {
           retrievePropFromChild={retrievePropFromChild}
         />
       </div>
-      <div className="sign-out-form-container">
-        <form onSubmit={handleSubmit}>
-          <div className="form-control">
-            <div className="form-box">
-              <span>GUEST_NAME</span>
-              <span>{guestDetail?.guest_name}</span>
+      {guestDetail.length !== 0 && (
+        <div className="sign-out-form-container">
+          <form onSubmit={handleSubmit}>
+            <div className="form-control">
+              <div className="form-box">
+                <span>GUEST_NAME</span>
+                <span>{guestDetail?.guest_name}</span>
+              </div>
+              <div className="form-box">
+                <span>GUEST_CONTACT</span>
+                <span>{guestDetail?.guest_contact}</span>
+              </div>
+              <div className="form-box">
+                <span>TAG_NO</span>
+                <span>{guestDetail?.tag_no}</span>
+              </div>
+              <div className="form-box">
+                <span>STAFF_NAME</span>
+                <span>{guestDetail?.staff_name}</span>
+              </div>
+              <div className="form-box">
+                <span>DEPARTMENT</span>
+                <span>{guestDetail?.department}</span>
+              </div>
+              <div className="form-box">
+                <span>ROOM_NO</span>
+                <span>{guestDetail?.room_no}</span>
+              </div>
+              <div className="form-box">
+                <span>TIME_IN</span>
+                <span>{guestDetail?.time_in}</span>
+              </div>
             </div>
-            <div className="form-box">
-              <span>GUEST_CONTACT</span>
-              <span>{guestDetail?.guest_contact}</span>
-            </div>
-            <div className="form-box">
-              <span>TAG_NO</span>
-              <span>{guestDetail?.tag_no}</span>
-            </div>
-            <div className="form-box">
-              <span>STAFF_NAME</span>
-              <span>{guestDetail?.staff_name}</span>
-            </div>
-            <div className="form-box">
-              <span>DEPARTMENT</span>
-              <span>{guestDetail?.department}</span>
-            </div>
-            <div className="form-box">
-              <span>ROOM_NO</span>
-              <span>{guestDetail?.room_no}</span>
-            </div>
-            <div className="form-box">
-              <span>TIME_IN</span>
-              <span>{guestDetail?.time_in}</span>
-            </div>
-          </div>
 
-          <button
-            onClick={() => handleSignOut(guestDetail.id)}
-            className="btn-signOut"
-          >
-            Signout
-          </button>
-        </form>
-      </div>
+            <button
+              onClick={() => handleSignOut(guestDetail.id)}
+              className="btn-signOut"
+            >
+              Signout
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 };
