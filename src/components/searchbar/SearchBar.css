@@ -1,10 +1,11 @@
 .search {
   width: 100%;
+ 
 }
 
 .searchInputs {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .search input {
@@ -19,7 +20,7 @@
 }
 
 .searchIcon {
-  background-color: white;
+  /* background-color: white; */
   display: grid;
   place-items: center;
 }

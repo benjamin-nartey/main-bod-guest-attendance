@@ -2,3 +2,13 @@
   width: 100%;
   padding: 2rem 1.5rem;
 }
+
+@media only screen and (max-width: 480px) {
+  .allguest-container {
+    padding: 0rem 0rem;
+  }
+
+  .data-table-container {
+    height: 85vh !important;
+  }
+}

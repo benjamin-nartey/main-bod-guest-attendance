@@ -1,12 +1,78 @@
 export const reasonsOptions = [
   {
-    label: "Bod Meeting",
-    value: "bod_meeting",
+    label: "Contractor",
+    value: "contractor",
     id: 1,
   },
   {
-    label: "Official",
-    value: "official",
+    label: "Transporter",
+    value: "transporter",
     id: 2,
+  },
+  {
+    label: "LBC",
+    value: "lbc",
+    id: 3,
+  },
+  {
+    label: "Farmer",
+    value: "farmer",
+    id: 4,
+  },
+  {
+    label: "Transporter",
+    value: "transporter",
+    id: 5,
+  },
+  {
+    label: "Official",
+    value: "Official",
+    id: 6,
+  },
+  {
+    label: "Personal",
+    value: "personal",
+    id: 7,
+  },
+  {
+    label: "Interview",
+    value: "interview",
+    id: 8,
+  },
+  {
+    label: "Sales",
+    value: "sales",
+    id: 9,
+  },
+  {
+    label: "Letter Delivery",
+    value: "letter_delivery",
+    id: 11,
+  },
+  {
+    label: "Food Delivery",
+    value: "food_delivery",
+    id: 12,
+  },
+  {
+    label: "Appointment",
+    value: "appointment",
+    id: 13,
+  },
+  {
+    label: "Picking Up Cash",
+    value: "picking_up_cash",
+    id: 14,
+  },
+
+  {
+    label: "Supplies Of Delivery Goods",
+    value: "supplies_delivery_of_goods",
+    id: 15,
+  },
+  {
+    label: "Others",
+    value: "others",
+    id: 16,
   },
 ];

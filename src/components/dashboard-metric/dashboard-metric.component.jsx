@@ -6,7 +6,8 @@ import { useContext } from "react";
 import { GuestContext } from "../../context/guest.context";
 
 const DashboardMetric = () => {
-  const { allGuest } = useContext(GuestContext);
+  const { allGuest, todaySignin, todaySignout } = useContext(GuestContext);
+
   return (
     <div className="dashboard-metric-container">
       <Link className="link-class link-1" to="/dashboard/allguest-data">
@@ -21,29 +22,31 @@ const DashboardMetric = () => {
           </div>
         </MetricCard>
       </Link>
-      <Link className="link-class link-2" to="">
+      <Link className="link-class link-2" to="/dashboard/check-ins">
         <MetricCard cardType="contract">
           <div className="metric-label-container">
-            <h4 className="metric-name">Contract</h4>
+            <h4 className="metric-name">Today's Check-ins</h4>
             <span className="metirc-description">
-              total number of contract visitors
+              total number of check-ins today
             </span>
-            <h2 className="metric-figures">loading...</h2>
+            <h2 className="metric-figures">{todaySignin.length}</h2>
           </div>
           <div className="metric-icon-div">
             <BsPeople className="metric-icon" />
           </div>
         </MetricCard>
       </Link>
-      <Link className="link-class link-3" to="">
+      <Link className="link-class link-3" to="/dashboard/check-outs">
         <MetricCard>
           <div className="metric-icon-div">
             <BsPeople className="metric-icon-2" />
           </div>
           <div className="metric-label-container-2">
-            <h4 className="metric-name">Meeting</h4>
-            <span className="metirc-description">total number of visitors</span>
-            <h2 className="metric-figures">loading...</h2>
+            <h4 className="metric-name">Today's Check-outs</h4>
+            <span className="metirc-description">
+              total number of check-outs today
+            </span>
+            <h2 className="metric-figures">{todaySignout.length}</h2>
           </div>
         </MetricCard>
       </Link>

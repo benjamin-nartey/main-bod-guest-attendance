@@ -67,32 +67,6 @@
   color: rgba(0, 0, 0, 0.7);
 }
 
-/* .search-container {
-  position: relative;
-  width: 25rem;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
- 
-} */
-
-/* .search-icon {
-  position: absolute;
-  left: 5px;
-  color: rgba(0, 0, 0, 0.5);
-} */
-
-/* .search-bar {
-  width: 100%;
-  padding: 10px 10px 10px 25px;
-  outline: none;
-  border: none;
-  border-radius: 1vmin;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  background-color: hsl(22, 78%, 95%);
-} */
 .welcome-text .welcome-text-1 {
   font-size: 18px;
   font-weight: 500;
@@ -104,4 +78,41 @@
   font-size: 15px;
   font-weight: 400;
   display: inline-block;
+}
+
+@media only screen and (max-width: 480px) {
+  .welcome-box {
+    display: none;
+  }
+  .menu-container .menu-icon-box {
+    justify-content: space-evenly;
+  }
+  body {
+    padding: 0 0;
+  }
+
+  /* html {
+    overflow-x: hidden;
+  } */
+  .home-container {
+    padding: 0.5rem 0.5rem;
+    min-height: 80vh;
+    padding-bottom: 1rem;
+    overflow-y: scroll;
+  }
+  .form-container {
+    padding: 0 0;
+    overflow-y: scroll;
+  }
+  .form-container form {
+    padding: 0.5rem;
+    width: 95%;
+  }
+  .form-container form .form-input-control {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+  }
+  .form-container form .form-input-group .tagSearchInput {
+    margin-bottom: 1rem;
+  }
 }

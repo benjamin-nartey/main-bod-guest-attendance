@@ -1,7 +1,6 @@
 import "./guest-form.styles.css";
 import { genderOptions } from "../../utils/gender-options.utils";
 import { reasonsOptions } from "../../utils/reasons-options.utils";
-import { relationshipOptions } from "../../utils/relationship-options.utils";
 import { useState, useContext } from "react";
 import db from "../../utils/firebase.utils";
 import { collection, addDoc } from "firebase/firestore";
@@ -25,9 +24,9 @@ const defaultFormFields = {
   guest_name: "",
   gender: "",
   guest_contact: "",
-  relationship: "",
-  reason: "",
-  time_in: `"${time_in}"`,
+  company: "",
+  visit_type: "",
+  time_in: `${time_in}`,
   time_out: "",
 };
 
@@ -48,8 +47,8 @@ const GuestForm = () => {
     guest_name,
     gender,
     guest_contact,
-    relationship,
-    reason,
+    company,
+    visit_type,
   } = formFields;
 
   const staff_name = staffDetail?.employee;
@@ -66,8 +65,8 @@ const GuestForm = () => {
       gender: "",
       tag_no: "",
       guest_contact: "",
-      relationship: "",
-      reason: "",
+      company: "",
+      visit_type: "",
       time_in: "",
       time_out: "",
       staff_name: "",
@@ -265,32 +264,24 @@ const GuestForm = () => {
                 />
               </div>
               <div className="form-input-group">
-                <span>Relationship With Staff</span>
-                <select
-                  required
-                  value={relationship}
-                  name="relationship"
-                  className="select"
+                <span>Company</span>
+                <input
+                  name="company"
+                  type="text"
+                  value={company}
                   onChange={handleChange}
-                >
-                  <option value="">Select Relationship</option>
-                  {relationshipOptions.map((option) => (
-                    <option key={option.id} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
+                />
               </div>
               <div className="form-input-group">
-                <span>Reasons For Visit</span>
+                <span>Visit Type</span>
                 <select
                   required
-                  value={reason}
-                  name="reason"
+                  value={visit_type}
+                  name="visit_type"
                   className="select"
                   onChange={handleChange}
                 >
-                  <option value="">Select Reason</option>
+                  <option value="">Select Visit Type</option>
                   {reasonsOptions.map((option) => (
                     <option key={option.id} value={option.value}>
                       {option.label}

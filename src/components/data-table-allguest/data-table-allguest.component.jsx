@@ -11,60 +11,60 @@ const DataTableAllGuest = () => {
   const columns = useMemo(
     () => [
       {
-        Header: "VISITOR'S NAME",
+        Header: "Visitor",
         accessor: "guest_name",
       },
       {
-        Header: "VISITOR'S CONTACT",
+        Header: "Contact",
         accessor: "guest_contact",
       },
 
       {
-        Header: "GENDER",
+        Header: "Gender",
         accessor: "gender",
       },
       {
-        Header: "TAG NUMBER.",
+        Header: "Tag",
         accessor: "tag_no",
       },
       {
-        Header: "STAFF NAME",
+        Header: "Staff Name",
         accessor: "staff_name",
       },
       {
-        Header: "DIVISION",
+        Header: "Division",
         accessor: "division",
       },
       {
-        Header: "DEPARTMENT",
+        Header: "Department",
         accessor: "department",
       },
       {
-        Header: "DIRECT LINE",
+        Header: "Direct Line",
         accessor: "direct_line",
       },
       {
-        Header: "EXTENSION",
+        Header: "Extension",
         accessor: "extension",
       },
       {
-        Header: "ROOM NUMBER",
+        Header: "Room",
         accessor: "room_no",
       },
       {
-        Header: "REASON",
-        accessor: "reason",
+        Header: "Type",
+        accessor: "visit_type",
       },
       {
-        Header: "RELATIONSHIP",
-        accessor: "relationship",
+        Header: "Company",
+        accessor: "company",
       },
       {
-        Header: "TIME IN",
+        Header: "Time In",
         accessor: "time_in",
       },
       {
-        Header: "TIME OUT",
+        Header: "Time Out",
         accessor: "time_out",
       },
     ],

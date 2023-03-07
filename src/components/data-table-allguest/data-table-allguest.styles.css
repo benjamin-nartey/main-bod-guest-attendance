@@ -3,15 +3,23 @@
   height: 30rem;
   overflow: scroll;
   padding: 0.5rem;
+  background-color: hsl(22, 78%, 92%);
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  border-radius: 1vmin;
   /* background-color: red; */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.data-table-container::-webkit-scrollbar {
+  display: none;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   overflow: hidden;
-  border: 1px solid #624736;
-  font-size: 12px;
   font-weight: 400;
 }
 th,
@@ -20,21 +28,24 @@ td {
   background-color: rgba(255, 255, 255, 0.2);
 }
 td {
-  color: #000;
-  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: capitalize;
+  font-weight: 400;
+  font-size: 11px;
 }
 
-th {
-  color: #fff;
-}
 th {
   text-align: left;
 }
 thead th {
-  background-color: #624736;
+  color: rgba(0, 0, 0, 0.7);
+  text-transform: capitalize !important;
+  font-weight: 700;
+  font-size: 13px;
 }
-tbody tr:nth-child(2n) {
-  background-color: rgba(210, 180, 140, 0.6);
+tbody tr:hover {
+  background-color: rgba(210, 180, 140, 0.5);
+  cursor: pointer;
 }
 tbody td {
   position: relative;

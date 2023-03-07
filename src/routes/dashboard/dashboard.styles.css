@@ -32,5 +32,22 @@
   height: 100%;
   background-color: hsl(22, 78%, 78%);
   padding: 0.5rem;
-  
+}
+
+@media only screen and (max-width: 480px) {
+  .dashboard-sidebar-container {
+    display: none;
+  }
+  .dashboard-container {
+    display: block !important;
+    height: 80vh;
+  }
+  .dashboard-metric-container {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0rem !important;
+  }
+  .metric-card-container {
+    height: 12rem !important;
+  }
 }
