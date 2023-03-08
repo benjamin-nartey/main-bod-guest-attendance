@@ -16,7 +16,7 @@ const OnPremise = () => {
             <span>Division</span>
             <span>Department</span>
             <span>Room No</span>
-            <span>Time Out</span>
+            <span>Time In</span>
           </div>
           {todayOnPremise.map((onPremise, index) => (
             <div key={index} className="list-box-card-content">

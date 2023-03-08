@@ -7,6 +7,7 @@ import AllGuestData from "./routes/allguest-data/allguest-data.component";
 import GuestLeave from "./routes/guest-leave/GuestLeave.component";
 import CheckIns from "./routes/checkins/check-ins";
 import CheckOuts from "./routes/checkouts/check-outs";
+import OnPremise from "./routes/on-premise/on-premise";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="allguest-data" element={<AllGuestData />} />
           <Route path="check-ins" element={<CheckIns />} />
           <Route path="check-outs" element={<CheckOuts />} />
+          <Route path="on-premise" element={<OnPremise/>}/>
         </Route>
       </Route>
     </Routes>

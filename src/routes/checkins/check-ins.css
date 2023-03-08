@@ -16,6 +16,12 @@
   overflow-y: scroll;
   text-align: center;
   border-radius: 1vmin;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.list-box-card::-webkit-scrollbar {
+  display: none;
 }
 
 .list-box-card-header {
