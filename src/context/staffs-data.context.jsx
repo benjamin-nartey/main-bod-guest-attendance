@@ -36,10 +36,7 @@ export const StaffsDataProvider = ({ children }) => {
     // };
   }, [isOnline]);
 
-  const value = { staffsData, loading };
-
-  console.log(staffsData, "fffffff");
-
+  const value = { staffsData, loading }
   return (
     <StaffsDataContext.Provider value={value}>
       {children}

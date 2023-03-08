@@ -18,7 +18,7 @@ function TagsSearchBar({ placeholder, data, retrieveTagDetail, value }) {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
     const newFilter = data.filter((value) => {
-      console.log(value);
+    
       return (
         value.label.toLowerCase().includes(searchWord.toLowerCase()) ||
         value.tagValue.toLowerCase().includes(searchWord.toLowerCase())

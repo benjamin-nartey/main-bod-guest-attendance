@@ -551,7 +551,7 @@ export const tagNo = [
   },
   {
     label: "tagNo",
-    tagValue: "GCB61",
+    tagValue: "GCB611",
     id: 111,
   },
   {

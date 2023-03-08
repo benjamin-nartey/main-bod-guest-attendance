@@ -6,7 +6,8 @@ import { useContext } from "react";
 import { GuestContext } from "../../context/guest.context";
 
 const DashboardMetric = () => {
-  const { allGuest, todaySignin, todaySignout } = useContext(GuestContext);
+  const { allGuest, todaySignin, todaySignout, todayOnPremise } =
+    useContext(GuestContext);
 
   return (
     <div className="dashboard-metric-container">
@@ -53,11 +54,11 @@ const DashboardMetric = () => {
       <Link className="link-class link-4" to="">
         <MetricCard cardType="official">
           <div className="metric-label-container">
-            <h4 className="metric-name">Official</h4>
+            <h4 className="metric-name">On Premise</h4>
             <span className="metirc-description">
-              total number of official visitors
+              total number of visitors on Premise
             </span>
-            <h2 className="metric-figures">loading...</h2>
+            <h2 className="metric-figures">{todayOnPremise.length}</h2>
           </div>
           <div className="metric-icon-div">
             <BsPeople className="metric-icon" />

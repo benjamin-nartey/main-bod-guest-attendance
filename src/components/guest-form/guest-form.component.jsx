@@ -55,9 +55,9 @@ const GuestForm = () => {
   const department = staffDetail?.Department?.departmentname;
   const division = staffDetail?.DDivisions?.divisionname;
   const room_no = staffDetail?.roomno;
-  const direct_line = staffDetail.directno;
-  const extension = staffDetail.extensionno;
-  const tag_no = tagDetail.tagValue;
+  const direct_line = staffDetail?.directno;
+  const extension = staffDetail?.extensionno;
+  const tag_no = tagDetail?.tagValue;
 
   const clearFormFields = () => {
     setFormFields({
@@ -67,7 +67,7 @@ const GuestForm = () => {
       guest_contact: "",
       company: "",
       visit_type: "",
-      time_in: "",
+      time_in: `${time_in}`,
       time_out: "",
       staff_name: "",
       department: "",
@@ -101,14 +101,14 @@ const GuestForm = () => {
       const payload = formFields;
       await addDoc(collectionRef, payload)
         .then(setLoading(false))
-        .then(clearFormFields())
         .then(
           swal(
             "Form Submitted!",
             "Guest data has been added to database!",
             "success"
           )
-        );
+        )
+        .then(clearFormFields());
     } catch (error) {
       console.log(error);
     }
@@ -122,10 +122,6 @@ const GuestForm = () => {
     setTagDetail(data);
   };
 
-  console.log(formFields);
-  console.log("staffDetaill", staffDetail);
-  console.log("tagDetail", tagDetail);
-  console.log("taggNoo", tag_no);
   return (
     <>
       {!loading ? (
