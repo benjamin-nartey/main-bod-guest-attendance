@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { UserProvider } from "./context/user.context";
 import { StaffsDataProvider } from "./context/staffs-data.context";
 import { GuestProvider } from "./context/guest.context";
 
@@ -11,11 +12,13 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <StaffsDataProvider>
-        <GuestProvider>
-          <App />
-        </GuestProvider>
-      </StaffsDataProvider>
+      <UserProvider>
+        <StaffsDataProvider>
+          <GuestProvider>
+            <App />
+          </GuestProvider>
+        </StaffsDataProvider>
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

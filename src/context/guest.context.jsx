@@ -10,6 +10,7 @@ export const GuestContext = createContext({
   setAllGuest: () => [],
   todaySignin: [],
   todaySignout: [],
+  todayOnPremise: [],
 });
 
 export const GuestProvider = ({ children }) => {
@@ -52,12 +53,6 @@ export const GuestProvider = ({ children }) => {
       setTodayOnPremises(newFilterOnPremise)
     );
   };
-
-  // useEffect(() => {
-  //   if (allGuest.length > 0) {
-  //     handleGuestFilter();
-  //   }
-  // }, [allGuest]);
 
   const value = { allGuest, todaySignin, todaySignout, todayOnPremise };
 

@@ -9,6 +9,10 @@ const Sidebar = () => {
         <MdOutlineDashboardCustomize className="icons sidebar-icons" />
         <span className="link-text">Dashboard</span>
       </Link>
+      <Link className="sidebar-navlink" to="/admin">
+        <MdOutlineDashboardCustomize className="icons sidebar-icons" />
+        <span className="link-text">Admin</span>
+      </Link>
     </div>
   );
 };

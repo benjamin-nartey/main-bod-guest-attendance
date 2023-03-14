@@ -52,8 +52,8 @@ const DataTableAllGuest = () => {
         accessor: "room_no",
       },
       {
-        Header: "Type",
-        accessor: "visit_type",
+        Header: "Purpose",
+        accessor: "purpose",
       },
       {
         Header: "Company",

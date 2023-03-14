@@ -11,85 +11,83 @@ import { StaffsDataContext } from "../../context/staffs-data.context";
 import TagsSearchBar from "../searchbar/tagsSearchBar";
 import Loader from "../loader/loader.component";
 
-const current = new Date();
-const time_in = current.toLocaleString();
-
 const defaultFormFields = {
-  // staff_name: "",
-  // department: "",
-  // room_no: "",
-  // personal_line: "",
-  // direct_line: "",
-  // extension: "",
   guest_name: "",
   gender: "",
   guest_contact: "",
   company: "",
-  visit_type: "",
-  time_in: `${time_in}`,
+  purpose: "",
   time_out: "",
+};
+
+const defaultOtherFields = {
+  staff_name: "",
+  department: "",
+  division: "",
+  tag_no: "",
+  room_no: "",
+  direct_line: "",
+  extension: "",
+  time_in: "",
 };
 
 const GuestForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
+  const [otherFields, setOtherFields] = useState(defaultOtherFields);
   const { staffsData } = useContext(StaffsDataContext);
   const [staffDetail, setStaffDetail] = useState([]);
   const [tagDetail, setTagDetail] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [timeIn, setTimeIn] = useState("");
 
-  const {
-    // staff_name,
-    // department,
-    // room_no,
-    // personal_line,
-    // direct_line,
-    // extension,
-    guest_name,
-    gender,
-    guest_contact,
-    company,
-    visit_type,
-  } = formFields;
+  let {
+    staff_name,
+    department,
+    division,
+    tag_no,
+    room_no,
+    direct_line,
+    extension,
+    time_in,
+  } = otherFields;
 
-  const staff_name = staffDetail?.employee;
-  const department = staffDetail?.Department?.departmentname;
-  const division = staffDetail?.DDivisions?.divisionname;
-  const room_no = staffDetail?.roomno;
-  const direct_line = staffDetail?.directno;
-  const extension = staffDetail?.extensionno;
-  const tag_no = tagDetail?.tagValue;
+  const { guest_name, gender, guest_contact, company, purpose } = formFields;
+
+  if (staffDetail.length !== 0) {
+    staff_name = staffDetail?.employee;
+    department = staffDetail?.Department?.departmentname;
+    division = staffDetail?.DDivisions?.divisionname;
+    room_no = staffDetail?.roomno;
+    direct_line = staffDetail?.directno;
+    extension = staffDetail?.extensionno;
+    tag_no = tagDetail?.tagValue;
+    time_in = timeIn;
+  }
 
   const clearFormFields = () => {
     setFormFields({
-      guest_name: "",
-      gender: "",
-      tag_no: "",
-      guest_contact: "",
-      company: "",
-      visit_type: "",
-      time_in: `${time_in}`,
-      time_out: "",
-      staff_name: "",
-      department: "",
-      division: "",
-      room_no: "",
-      direct_line: "",
-      extension: "",
+      ...defaultFormFields,
+      ...defaultOtherFields,
     });
+    setOtherFields({ ...defaultOtherFields });
+    setStaffDetail([]);
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    setTimeIn(() => new Date().toLocaleString());
     setFormFields({
       ...formFields,
       [name]: value,
-      staff_name,
-      department,
-      division,
-      room_no,
-      direct_line,
-      extension,
-      tag_no,
+      ...otherFields,
+      staff_name: staffDetail?.employee,
+      department: staffDetail?.Department?.departmentname,
+      division: staffDetail?.DDivisions?.divisionname,
+      room_no: staffDetail?.roomno,
+      direct_line: staffDetail?.directno,
+      extension: staffDetail?.extensionno,
+      tag_no: tagDetail?.tagValue,
+      time_in: timeIn,
     });
   };
 
@@ -122,6 +120,7 @@ const GuestForm = () => {
     setTagDetail(data);
   };
 
+  console.log(formFields);
   return (
     <>
       {!loading ? (
@@ -269,15 +268,15 @@ const GuestForm = () => {
                 />
               </div>
               <div className="form-input-group">
-                <span>Visit Type</span>
+                <span>Purpose Of Visit</span>
                 <select
                   required
-                  value={visit_type}
-                  name="visit_type"
+                  value={purpose}
+                  name="purpose"
                   className="select"
                   onChange={handleChange}
                 >
-                  <option value="">Select Visit Type</option>
+                  <option value="">Select Purpose</option>
                   {reasonsOptions.map((option) => (
                     <option key={option.id} value={option.value}>
                       {option.label}

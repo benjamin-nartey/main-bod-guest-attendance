@@ -47,32 +47,32 @@ export const reasonsOptions = [
   {
     label: "Letter Delivery",
     value: "letter_delivery",
-    id: 11,
+    id: 10,
   },
   {
     label: "Food Delivery",
     value: "food_delivery",
-    id: 12,
+    id: 11,
   },
   {
     label: "Appointment",
     value: "appointment",
-    id: 13,
+    id: 12,
   },
   {
-    label: "Picking Up Cash",
-    value: "picking_up_cash",
-    id: 14,
+    label: "Picking Up Cheque",
+    value: "picking_up_cheque",
+    id: 13,
   },
 
   {
     label: "Supplies Of Delivery Goods",
     value: "supplies_delivery_of_goods",
-    id: 15,
+    id: 14,
   },
   {
     label: "Others",
     value: "others",
-    id: 16,
+    id: 15,
   },
 ];
